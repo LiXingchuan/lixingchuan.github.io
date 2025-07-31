@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+	<script>LA.init({id:"KteiGEmjIkxdMoOq",ck:"KteiGEmjIkxdMoOq"})</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xixun.com | The Definitive Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-bg: #f5f5f7;
+            --dark-bg: #111111;
+            --text-light: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --text-secondary: #86868b;
+            --brand-red: #D93636; /* 统一的品牌红色 */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- 动画 --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 英雄区域 --- */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            background: linear-gradient(160deg, #E62E2E, #C62828);
+        }
+
+        .domain-name {
+            font-weight: 800;
+            font-size: clamp(3rem, 15vw, 10rem);
+            line-height: 1.1;
+            margin: 0;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 4vw, 1.75rem);
+            font-weight: 400;
+            margin: 20px 0 0;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            animation: fadeInUp 1.2s ease-out 0.2s;
+            animation-fill-mode: backwards;
+        }
+        
+        .hero-cta-container {
+            margin-top: 40px;
+            animation: fadeInUp 1.2s ease-out 0.4s;
+            animation-fill-mode: backwards;
+        }
+
+        .hero-cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--brand-red);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 99px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero-cta-button:hover {
+            transform: scale(1.05);
+            background: #ffffff;
+        }
+
+        /* --- 价值阐述区域 --- */
+        .value-section {
+            background-color: var(--light-bg);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 600;
+            margin: 0 0 60px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+        
+        .feature-item p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- 联系区域 (全新布局) --- */
+        .contact-section {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .contact-section .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        
+        .contact-main-action {
+            margin-bottom: 50px;
+        }
+        
+        .email-cta-button {
+            display: inline-block;
+            background: var(--brand-red);
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 16px 35px;
+            border-radius: 99px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .email-cta-button:hover {
+            transform: scale(1.05);
+            background: #E53935;
+            box-shadow: 0 5px 20px rgba(229, 57, 53, 0.3);
+        }
+
+        .other-options-divider {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        
+        .other-contact-methods {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap; /* 在小屏幕上换行 */
+            gap: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            min-width: 120px; /* 保证每个项目有足够宽度 */
+        }
+        
+        .contact-item a, .contact-item .no-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+        }
+        
+        .contact-item svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover svg, .contact-item .no-link:hover svg {
+            fill: var(--brand-red);
+            transform: scale(1.1);
+        }
+        
+        .contact-item .contact-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item .contact-detail {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="hero-section">
+        <h1 class="domain-name">xixun.com</h1>
+        <p class="hero-tagline">为下一个伟大品牌而生。</p>
+        <div class="hero-cta-container">
+            <a href="#contact" class="hero-cta-button">立即洽谈</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="value-section">
+            <h2 class="section-title reveal-on-scroll">一个名字，无限可能。</h2>
+            <div class="features-grid">
+                <div class="feature-item reveal-on-scroll">
+                    <h3>声音即是品牌</h3>
+                    <p>“xixun”，发音清晰，跨越语言障碍。它不仅是一个域名，更是一个能被全球用户轻松记忆和传播的品牌声音。</p>
+                </div>
+                <div class="feature-item reveal-on-scroll">
+                    <h3>简洁成就永恒</h3>
+                    <p>在信息过载的时代，简洁是最高效的沟通。6字母.com域名是稀缺的数字资产，其价值随着时间的推移而历久弥新。</p>
+                </div>
+                <div class="feature-item reveal-on-scroll">
+                    <h3>寓意驱动未来</h3>
+                    <p>“喜讯”——这个名字本身就蕴含着积极、成功和分享的强大能量，能为您的事业注入源源不断的品牌情感价值。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title reveal-on-scroll">开启您的时代</h2>
+            <p class="section-subtitle reveal-on-scroll">伟大的旅程，始于一个正确的决定。请选择您最便捷的方式，与我取得联系。</p>
+            
+            <div class="contact-main-action reveal-on-scroll">
+                <a href="mailto:2901996@qq.com?subject=关于域名 xixun.com 的收购意向" class="email-cta-button">发送邮件</a>
+            </div>
+
+            <p class="other-options-divider reveal-on-scroll">或通过以下方式联系</p>
+
+            <div class="other-contact-methods reveal-on-scroll">
+                <!-- 微信 -->
+                <div class="contact-item">
+                    <div class="no-link" title="邮箱：YOUR_WECHAT_ID">
+                        <span class="contact-label">邮箱</span>
+                        <span class="contact-detail">2901996@qq.com</span>
+                    </div>
+                </div>
+                <!-- QQ -->
+                <div class="contact-item">
+                    <div class="no-link" title="QQ：YOUR_WECHAT_ID">
+                        <span class="contact-label">电话</span>
+                        <span class="contact-detail">13552005033</span>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <script>
+        const scrollElements = document.querySelectorAll(".reveal-on-scroll");
+        const elementInView = (el) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - 50;
+        };
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el)) {
+                    el.classList.add("is-visible");
+                }
+            });
+        };
+        window.addEventListener("scroll", handleScrollAnimation);
+        handleScrollAnimation();
+    </script>
+</body>
+</html>
